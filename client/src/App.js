@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import { Navbar, Nav, Image, Button } from 'react-bootstrap';
 import './App.css';
+
+import rpLogo from './images/rp-logo.png';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar bg="light">
+          <Link to="/"><Navbar.Brand><Image src={rpLogo} width="50px" height="50px" /></Navbar.Brand></Link>
+          <Nav className="ml-auto">
+            <Link to="/play"><Button className="styled-button mr-2" variant="outline-dark">Play</Button></Link>
+            <Link to="/signin"><Button className="styled-button" variant="outline-dark">Sign in</Button></Link>
+          </Nav>
+        </Navbar>
+      </div>
+    </Router>
   );
 }
 
